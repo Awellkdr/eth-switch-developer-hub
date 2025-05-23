@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 const HeroSection = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-green-600">
+    <div className="relative overflow-hidden bg-gradient-to-br from-[#1B2A3B] via-[#1B2A3B]/90 to-[#F37321]">
       <div className="absolute inset-0 bg-black opacity-10"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -15,7 +15,7 @@ const HeroSection = () => {
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Build the Future of
-            <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-300 to-[#F37321] bg-clip-text text-transparent">
               Ethiopian Fintech
             </span>
           </h1>
@@ -27,7 +27,7 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            <Button size="lg" className="bg-[#F37321] hover:bg-[#e06314] text-white">
               Get Started Free
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

@@ -28,38 +28,38 @@ const Index = () => {
         
         {/* Additional sections */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+          <div className="bg-white rounded-lg p-6 shadow-sm border hover:border-[#F37321] transition-colors">
+            <h3 className="text-lg font-semibold text-[#1B2A3B] mb-3">
               🏦 Bank Integration
             </h3>
             <p className="text-gray-600 mb-4">
               Connect to all major Ethiopian banks with standardized APIs for payments, transfers, and account management.
             </p>
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            <a href="#" className="text-[#F37321] hover:text-[#e06314] font-medium">
               Learn more →
             </a>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+          <div className="bg-white rounded-lg p-6 shadow-sm border hover:border-[#F37321] transition-colors">
+            <h3 className="text-lg font-semibold text-[#1B2A3B] mb-3">
               📱 Mobile Wallets
             </h3>
             <p className="text-gray-600 mb-4">
               Integrate with popular mobile wallet providers like M-Birr, HelloCash, and Amole through unified APIs.
             </p>
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            <a href="#" className="text-[#F37321] hover:text-[#e06314] font-medium">
               Explore APIs →
             </a>
           </div>
           
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+          <div className="bg-white rounded-lg p-6 shadow-sm border hover:border-[#F37321] transition-colors">
+            <h3 className="text-lg font-semibold text-[#1B2A3B] mb-3">
               🔐 Security First
             </h3>
             <p className="text-gray-600 mb-4">
               Enterprise-grade security with PCI-DSS compliance, end-to-end encryption, and fraud detection.
             </p>
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            <a href="#" className="text-[#F37321] hover:text-[#e06314] font-medium">
               Security docs →
             </a>
           </div>
@@ -67,24 +67,24 @@ const Index = () => {
         
         {/* Statistics section */}
         <div className="bg-white rounded-lg p-8 shadow-sm border">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+          <h2 className="text-2xl font-bold text-[#1B2A3B] text-center mb-8">
             Trusted by Ethiopian Fintech Leaders
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-3xl font-bold text-[#F37321] mb-2">15+</div>
               <div className="text-gray-600">Partner Banks</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">8+</div>
+              <div className="text-3xl font-bold text-[#F37321] mb-2">8+</div>
               <div className="text-gray-600">Mobile Wallets</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">100+</div>
+              <div className="text-3xl font-bold text-[#F37321] mb-2">100+</div>
               <div className="text-gray-600">Active Developers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">1M+</div>
+              <div className="text-3xl font-bold text-[#F37321] mb-2">1M+</div>
               <div className="text-gray-600">Daily Transactions</div>
             </div>
           </div>
