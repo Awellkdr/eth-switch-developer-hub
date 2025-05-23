@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,22 +56,22 @@ const Documentation = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">API Documentation</h1>
+          <h1 className="text-3xl font-bold text-[#1B2A3B] mb-4">API Documentation</h1>
           <p className="text-lg text-gray-600 mb-6">
             Comprehensive guides and API reference for the ETH Switch platform
           </p>
           
           <div className="flex space-x-4">
-            <Button>Get API Keys</Button>
-            <Button variant="outline">Download SDKs</Button>
+            <Button className="bg-[#F37321] hover:bg-[#e06314] text-white">Get API Keys</Button>
+            <Button variant="outline" className="text-[#1B2A3B] border-[#1B2A3B] hover:bg-[#1B2A3B]/10">Download SDKs</Button>
           </div>
         </div>
 
         {/* Quick access cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+          <Card className="bg-gradient-to-br from-[#1B2A3B]/5 to-[#1B2A3B]/10 border-[#1B2A3B]/20">
             <CardHeader>
-              <CardTitle className="flex items-center">
+              <CardTitle className="flex items-center text-[#1B2A3B]">
                 <span className="text-2xl mr-2">🚀</span>
                 Quick Start
               </CardTitle>
@@ -79,13 +80,13 @@ const Documentation = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full">Start Building</Button>
+              <Button className="w-full bg-[#F37321] hover:bg-[#e06314] text-white">Start Building</Button>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+          <Card className="bg-gradient-to-br from-[#F37321]/5 to-[#F37321]/10 border-[#F37321]/20">
             <CardHeader>
-              <CardTitle className="flex items-center">
+              <CardTitle className="flex items-center text-[#1B2A3B]">
                 <span className="text-2xl mr-2">🧪</span>
                 API Playground
               </CardTitle>
@@ -94,13 +95,13 @@ const Documentation = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full">Try APIs</Button>
+              <Button className="w-full bg-[#F37321] hover:bg-[#e06314] text-white">Try APIs</Button>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
+          <Card className="bg-gradient-to-br from-[#1B2A3B]/5 to-[#F37321]/10 border-[#1B2A3B]/20">
             <CardHeader>
-              <CardTitle className="flex items-center">
+              <CardTitle className="flex items-center text-[#1B2A3B]">
                 <span className="text-2xl mr-2">📚</span>
                 SDKs & Libraries
               </CardTitle>
@@ -109,7 +110,7 @@ const Documentation = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full">Download SDKs</Button>
+              <Button className="w-full bg-[#F37321] hover:bg-[#e06314] text-white">Download SDKs</Button>
             </CardContent>
           </Card>
         </div>
@@ -119,7 +120,7 @@ const Documentation = () => {
           {apiSections.map((section, index) => (
             <Card key={index}>
               <CardHeader>
-                <CardTitle>{section.title}</CardTitle>
+                <CardTitle className="text-[#1B2A3B]">{section.title}</CardTitle>
                 <CardDescription>{section.description}</CardDescription>
               </CardHeader>
               <CardContent>
@@ -127,13 +128,13 @@ const Documentation = () => {
                   {section.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex}
-                      className="p-4 border rounded-lg hover:border-blue-300 cursor-pointer transition-colors"
+                      className="p-4 border rounded-lg hover:border-[#F37321] cursor-pointer transition-colors"
                     >
-                      <h4 className="font-medium text-gray-900 mb-2">{item.name}</h4>
+                      <h4 className="font-medium text-[#1B2A3B] mb-2">{item.name}</h4>
                       <p className="text-sm text-gray-600 mb-3">{item.description}</p>
                       <div className="flex space-x-2">
-                        <Badge variant="outline" className="text-xs">REST</Badge>
-                        <Badge variant="outline" className="text-xs">JSON</Badge>
+                        <Badge variant="outline" className="text-xs border-[#F37321] text-[#F37321]">REST</Badge>
+                        <Badge variant="outline" className="text-xs border-[#1B2A3B] text-[#1B2A3B]">JSON</Badge>
                       </div>
                     </div>
                   ))}
@@ -146,15 +147,15 @@ const Documentation = () => {
         {/* Code example section */}
         <Card className="mt-12">
           <CardHeader>
-            <CardTitle>Example: Create Instant Payment</CardTitle>
+            <CardTitle className="text-[#1B2A3B]">Example: Create Instant Payment</CardTitle>
             <CardDescription>
               Here's a quick example of how to create an instant payment using our REST API
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm overflow-x-auto">
-              <div className="text-gray-500 mb-2"># Make a POST request to create an instant payment</div>
-              <div className="text-blue-400">curl</div> <span className="text-yellow-400">-X POST</span> https://api.ethswitch.com/v1/payments/instant \<br/>
+            <div className="bg-[#1B2A3B] rounded-lg p-6 text-green-400 font-mono text-sm overflow-x-auto">
+              <div className="text-gray-400 mb-2"># Make a POST request to create an instant payment</div>
+              <div className="text-[#F37321]">curl</div> <span className="text-yellow-400">-X POST</span> https://api.ethswitch.com/v1/payments/instant \<br/>
               <span className="ml-4 text-yellow-400">-H</span> <span className="text-green-400">"Authorization: Bearer YOUR_API_KEY"</span> \<br/>
               <span className="ml-4 text-yellow-400">-H</span> <span className="text-green-400">"Content-Type: application/json"</span> \<br/>
               <span className="ml-4 text-yellow-400">-d</span> <span className="text-green-400">'{"{"}'</span><br/>
