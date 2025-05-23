@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -158,7 +157,7 @@ const Documentation = () => {
               <div className="text-blue-400">curl</div> <span className="text-yellow-400">-X POST</span> https://api.ethswitch.com/v1/payments/instant \<br/>
               <span className="ml-4 text-yellow-400">-H</span> <span className="text-green-400">"Authorization: Bearer YOUR_API_KEY"</span> \<br/>
               <span className="ml-4 text-yellow-400">-H</span> <span className="text-green-400">"Content-Type: application/json"</span> \<br/>
-              <span className="ml-4 text-yellow-400">-d</span> <span className="text-green-400">'{""{'"'}</span><br/>
+              <span className="ml-4 text-yellow-400">-d</span> <span className="text-green-400">'{"{"}'</span><br/>
               <span className="ml-8 text-white">"amount": 1000.00,</span><br/>
               <span className="ml-8 text-white">"currency": "ETB",</span><br/>
               <span className="ml-8 text-white">"from_account": "acc_123",</span><br/>
