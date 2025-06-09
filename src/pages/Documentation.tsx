@@ -4,47 +4,147 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ArrowRight, Book, Code, Zap, Shield, CreditCard, Smartphone, QrCode, Webhook } from "lucide-react";
 
 const Documentation = () => {
-  const apiSections = [
+  const products = [
     {
-      title: "Getting Started",
-      description: "Everything you need to know to get started with ETH Switch APIs",
-      items: [
-        { name: "Quick Start Guide", description: "Get up and running in 5 minutes" },
-        { name: "Authentication", description: "API keys, tokens, and security" },
-        { name: "Environment Setup", description: "Sandbox vs Production environments" },
-        { name: "Rate Limits", description: "Understanding API call limits" }
+      id: "instant-payments",
+      name: "Instant Payments",
+      description: "Real-time payment processing and transfers",
+      icon: <Zap className="w-6 h-6" />,
+      overview: {
+        title: "Instant Payments Overview",
+        description: "Process real-time payments with immediate settlement across all supported banks and financial institutions in Ethiopia.",
+        features: [
+          "Real-time processing",
+          "Immediate settlement",
+          "24/7 availability",
+          "Multi-bank support",
+          "Transaction tracking"
+        ]
+      },
+      apis: [
+        { name: "Create Payment", endpoint: "POST /v1/payments/instant", description: "Initiate an instant payment" },
+        { name: "Payment Status", endpoint: "GET /v1/payments/{id}/status", description: "Check payment status" },
+        { name: "Cancel Payment", endpoint: "POST /v1/payments/{id}/cancel", description: "Cancel pending payment" },
+        { name: "Payment History", endpoint: "GET /v1/payments/history", description: "Retrieve payment history" }
       ]
     },
     {
-      title: "Payment APIs",
-      description: "Core payment processing and transfer APIs",
-      items: [
-        { name: "Instant Payments", description: "Real-time payment processing" },
-        { name: "Bank Transfers", description: "Inter-bank transfer operations" },
-        { name: "Mobile Wallet Transfers", description: "Mobile wallet integrations" },
-        { name: "QR Code Payments", description: "QR-based payment flows" }
+      id: "bank-transfers",
+      name: "Bank Transfers",
+      description: "Inter-bank transfer operations",
+      icon: <CreditCard className="w-6 h-6" />,
+      overview: {
+        title: "Bank Transfers Overview",
+        description: "Facilitate secure inter-bank transfers with support for all major Ethiopian banks and international transfer protocols.",
+        features: [
+          "Inter-bank transfers",
+          "SWIFT integration",
+          "Batch processing",
+          "Transaction limits",
+          "Compliance checks"
+        ]
+      },
+      apis: [
+        { name: "Create Transfer", endpoint: "POST /v1/transfers/bank", description: "Initiate bank transfer" },
+        { name: "Transfer Status", endpoint: "GET /v1/transfers/{id}", description: "Get transfer details" },
+        { name: "Batch Transfer", endpoint: "POST /v1/transfers/batch", description: "Process multiple transfers" },
+        { name: "Bank Directory", endpoint: "GET /v1/banks", description: "List supported banks" }
       ]
     },
     {
-      title: "Request to Pay",
+      id: "mobile-wallets",
+      name: "Mobile Wallets",
+      description: "Mobile wallet integrations and transfers",
+      icon: <Smartphone className="w-6 h-6" />,
+      overview: {
+        title: "Mobile Wallets Overview",
+        description: "Connect with popular mobile wallet providers in Ethiopia including Telebirr, M-Birr, and HelloCash for seamless mobile payments.",
+        features: [
+          "Multi-wallet support",
+          "USSD integration",
+          "Mobile notifications",
+          "Offline capabilities",
+          "Balance inquiries"
+        ]
+      },
+      apis: [
+        { name: "Wallet Payment", endpoint: "POST /v1/wallets/payment", description: "Process wallet payment" },
+        { name: "Wallet Balance", endpoint: "GET /v1/wallets/balance", description: "Check wallet balance" },
+        { name: "Wallet Transfer", endpoint: "POST /v1/wallets/transfer", description: "Transfer between wallets" },
+        { name: "Wallet Providers", endpoint: "GET /v1/wallets/providers", description: "List wallet providers" }
+      ]
+    },
+    {
+      id: "qr-payments",
+      name: "QR Code Payments",
+      description: "QR-based payment solutions",
+      icon: <QrCode className="w-6 h-6" />,
+      overview: {
+        title: "QR Code Payments Overview",
+        description: "Enable quick and secure QR code-based payments for merchants and customers with EMVCo compliant QR standards.",
+        features: [
+          "EMVCo compliance",
+          "Dynamic QR codes",
+          "Merchant integration",
+          "Customer apps",
+          "Receipt generation"
+        ]
+      },
+      apis: [
+        { name: "Generate QR", endpoint: "POST /v1/qr/generate", description: "Generate payment QR code" },
+        { name: "Process QR Payment", endpoint: "POST /v1/qr/payment", description: "Process QR payment" },
+        { name: "QR Status", endpoint: "GET /v1/qr/{id}/status", description: "Check QR payment status" },
+        { name: "Merchant QR", endpoint: "POST /v1/qr/merchant", description: "Create merchant QR" }
+      ]
+    },
+    {
+      id: "request-to-pay",
+      name: "Request to Pay",
       description: "Payment request and collection APIs",
-      items: [
-        { name: "Create Payment Request", description: "Send payment requests to customers" },
-        { name: "Request Status", description: "Track payment request status" },
-        { name: "Notifications", description: "Real-time payment notifications" },
-        { name: "Refunds", description: "Process refunds and reversals" }
+      icon: <Book className="w-6 h-6" />,
+      overview: {
+        title: "Request to Pay Overview",
+        description: "Send payment requests to customers and track collection status with automated notifications and follow-ups.",
+        features: [
+          "Payment requests",
+          "Collection tracking",
+          "Automated reminders",
+          "Multi-channel delivery",
+          "Customizable templates"
+        ]
+      },
+      apis: [
+        { name: "Create Request", endpoint: "POST /v1/requests/payment", description: "Send payment request" },
+        { name: "Request Status", endpoint: "GET /v1/requests/{id}", description: "Check request status" },
+        { name: "Cancel Request", endpoint: "DELETE /v1/requests/{id}", description: "Cancel payment request" },
+        { name: "Request History", endpoint: "GET /v1/requests/history", description: "Get request history" }
       ]
     },
     {
-      title: "Webhooks",
+      id: "webhooks",
+      name: "Webhooks & Events",
       description: "Real-time event notifications",
-      items: [
-        { name: "Webhook Setup", description: "Configure webhook endpoints" },
-        { name: "Event Types", description: "Available webhook events" },
-        { name: "Security", description: "Webhook signature verification" },
-        { name: "Retry Logic", description: "Failed webhook handling" }
+      icon: <Webhook className="w-6 h-6" />,
+      overview: {
+        title: "Webhooks Overview",
+        description: "Receive real-time notifications about payment events, transaction updates, and system status changes.",
+        features: [
+          "Real-time notifications",
+          "Event filtering",
+          "Retry mechanisms",
+          "Signature verification",
+          "Event history"
+        ]
+      },
+      apis: [
+        { name: "Create Webhook", endpoint: "POST /v1/webhooks", description: "Register webhook endpoint" },
+        { name: "List Webhooks", endpoint: "GET /v1/webhooks", description: "Get webhook configurations" },
+        { name: "Update Webhook", endpoint: "PUT /v1/webhooks/{id}", description: "Update webhook settings" },
+        { name: "Test Webhook", endpoint: "POST /v1/webhooks/{id}/test", description: "Test webhook endpoint" }
       ]
     }
   ];
@@ -58,7 +158,7 @@ const Documentation = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-[#1B2A3B] mb-4">API Documentation</h1>
           <p className="text-lg text-gray-600 mb-6">
-            Comprehensive guides and API reference for the ETH Switch platform
+            Comprehensive guides and API reference for all ETH Switch payment products and services
           </p>
           
           <div className="flex space-x-4">
@@ -115,30 +215,86 @@ const Documentation = () => {
           </Card>
         </div>
 
-        {/* API sections */}
+        {/* Products grid */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-[#1B2A3B] mb-6">Payment Products</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((product) => (
+              <Card key={product.id} className="hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-[#1B2A3B]">
+                    <div className="mr-3 text-[#F37321]">{product.icon}</div>
+                    {product.name}
+                  </CardTitle>
+                  <CardDescription>{product.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center text-[#F37321] text-sm font-medium">
+                    View Documentation
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Product details */}
         <div className="space-y-8">
-          {apiSections.map((section, index) => (
-            <Card key={index}>
+          {products.map((product) => (
+            <Card key={`${product.id}-details`} className="mb-8">
               <CardHeader>
-                <CardTitle className="text-[#1B2A3B]">{section.title}</CardTitle>
-                <CardDescription>{section.description}</CardDescription>
+                <CardTitle className="flex items-center text-[#1B2A3B]">
+                  <div className="mr-3 text-[#F37321]">{product.icon}</div>
+                  {product.name}
+                </CardTitle>
+                <CardDescription>{product.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {section.items.map((item, itemIndex) => (
-                    <div 
-                      key={itemIndex}
-                      className="p-4 border rounded-lg hover:border-[#F37321] cursor-pointer transition-colors"
-                    >
-                      <h4 className="font-medium text-[#1B2A3B] mb-2">{item.name}</h4>
-                      <p className="text-sm text-gray-600 mb-3">{item.description}</p>
-                      <div className="flex space-x-2">
-                        <Badge variant="outline" className="text-xs border-[#F37321] text-[#F37321]">REST</Badge>
-                        <Badge variant="outline" className="text-xs border-[#1B2A3B] text-[#1B2A3B]">JSON</Badge>
+                <Tabs defaultValue="overview" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="apis">APIs</TabsTrigger>
+                  </TabsList>
+                  
+                  <TabsContent value="overview" className="mt-6">
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-[#1B2A3B]">{product.overview.title}</h3>
+                      <p className="text-gray-600">{product.overview.description}</p>
+                      
+                      <div>
+                        <h4 className="font-medium text-[#1B2A3B] mb-3">Key Features</h4>
+                        <div className="grid md:grid-cols-2 gap-2">
+                          {product.overview.features.map((feature, index) => (
+                            <div key={index} className="flex items-center space-x-2">
+                              <div className="w-2 h-2 bg-[#F37321] rounded-full"></div>
+                              <span className="text-sm text-gray-600">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="apis" className="mt-6">
+                    <div className="space-y-4">
+                      {product.apis.map((api, index) => (
+                        <div key={index} className="border rounded-lg p-4 hover:border-[#F37321] transition-colors">
+                          <div className="flex items-start justify-between mb-2">
+                            <h4 className="font-medium text-[#1B2A3B]">{api.name}</h4>
+                            <Badge variant="outline" className="text-xs border-[#F37321] text-[#F37321]">
+                              {api.endpoint.split(' ')[0]}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-gray-600 mb-2">{api.description}</p>
+                          <code className="text-xs bg-gray-100 px-2 py-1 rounded text-[#1B2A3B]">
+                            {api.endpoint}
+                          </code>
+                        </div>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
               </CardContent>
             </Card>
           ))}
