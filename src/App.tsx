@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Documentation from "./pages/Documentation";
+import InstantPaymentsOverview from "./pages/docs/InstantPaymentsOverview";
+import BankTransfersOverview from "./pages/docs/BankTransfersOverview";
 import Playground from "./pages/Playground";
 import Console from "./pages/Console";
 import Support from "./pages/Support";
@@ -21,7 +23,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/docs/*" element={<Documentation />} />
+          <Route path="/docs" element={<Documentation />} />
+          <Route path="/docs/instant-payments" element={<InstantPaymentsOverview />} />
+          <Route path="/docs/bank-transfers" element={<BankTransfersOverview />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/console/*" element={<Console />} />
           <Route path="/support" element={<Support />} />

@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Book, Code, Zap, Shield, CreditCard, Smartphone, QrCode, Webhook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Documentation = () => {
   const products = [
@@ -14,12 +14,13 @@ const Documentation = () => {
       name: "Instant Payments",
       description: "Real-time payment processing and transfers",
       icon: <Zap className="w-6 h-6" />,
+      detailsPath: "/docs/instant-payments",
       overview: {
         title: "Instant Payments Overview",
         description: "Process real-time payments with immediate settlement across all supported banks and financial institutions in Ethiopia.",
         features: [
           "Real-time processing",
-          "Immediate settlement",
+          "Immediate settlement", 
           "24/7 availability",
           "Multi-bank support",
           "Transaction tracking"
@@ -34,9 +35,10 @@ const Documentation = () => {
     },
     {
       id: "bank-transfers",
-      name: "Bank Transfers",
+      name: "Bank Transfers", 
       description: "Inter-bank transfer operations",
       icon: <CreditCard className="w-6 h-6" />,
+      detailsPath: "/docs/bank-transfers",
       overview: {
         title: "Bank Transfers Overview",
         description: "Facilitate secure inter-bank transfers with support for all major Ethiopian banks and international transfer protocols.",
@@ -60,6 +62,7 @@ const Documentation = () => {
       name: "Mobile Wallets",
       description: "Mobile wallet integrations and transfers",
       icon: <Smartphone className="w-6 h-6" />,
+      detailsPath: "/docs/mobile-wallets",
       overview: {
         title: "Mobile Wallets Overview",
         description: "Connect with popular mobile wallet providers in Ethiopia including Telebirr, M-Birr, and HelloCash for seamless mobile payments.",
@@ -83,6 +86,7 @@ const Documentation = () => {
       name: "QR Code Payments",
       description: "QR-based payment solutions",
       icon: <QrCode className="w-6 h-6" />,
+      detailsPath: "/docs/qr-payments",
       overview: {
         title: "QR Code Payments Overview",
         description: "Enable quick and secure QR code-based payments for merchants and customers with EMVCo compliant QR standards.",
@@ -106,6 +110,7 @@ const Documentation = () => {
       name: "Request to Pay",
       description: "Payment request and collection APIs",
       icon: <Book className="w-6 h-6" />,
+      detailsPath: "/docs/request-to-pay",
       overview: {
         title: "Request to Pay Overview",
         description: "Send payment requests to customers and track collection status with automated notifications and follow-ups.",
@@ -129,6 +134,7 @@ const Documentation = () => {
       name: "Webhooks & Events",
       description: "Real-time event notifications",
       icon: <Webhook className="w-6 h-6" />,
+      detailsPath: "/docs/webhooks",
       overview: {
         title: "Webhooks Overview",
         description: "Receive real-time notifications about payment events, transaction updates, and system status changes.",
@@ -229,37 +235,45 @@ const Documentation = () => {
                   <CardDescription>{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center text-[#F37321] text-sm font-medium">
-                    View Documentation
+                  <Link to={product.detailsPath} className="flex items-center text-[#F37321] text-sm font-medium hover:underline">
+                    View Full Documentation
                     <ArrowRight className="w-4 h-4 ml-1" />
-                  </div>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* Product details */}
+        {/* Product details - Quick overview */}
         <div className="space-y-8">
           {products.map((product) => (
             <Card key={`${product.id}-details`} className="mb-8">
               <CardHeader>
-                <CardTitle className="flex items-center text-[#1B2A3B]">
-                  <div className="mr-3 text-[#F37321]">{product.icon}</div>
-                  {product.name}
-                </CardTitle>
-                <CardDescription>{product.description}</CardDescription>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="mr-3 text-[#F37321]">{product.icon}</div>
+                    <div>
+                      <CardTitle className="text-[#1B2A3B]">{product.name}</CardTitle>
+                      <CardDescription>{product.description}</CardDescription>
+                    </div>
+                  </div>
+                  <Link to={product.detailsPath}>
+                    <Button variant="outline" size="sm" className="text-[#F37321] border-[#F37321] hover:bg-[#F37321]/10">
+                      View Details
+                    </Button>
+                  </Link>
+                </div>
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="overview" className="w-full">
                   <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="overview">Quick Overview</TabsTrigger>
                     <TabsTrigger value="apis">APIs</TabsTrigger>
                   </TabsList>
                   
                   <TabsContent value="overview" className="mt-6">
                     <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-[#1B2A3B]">{product.overview.title}</h3>
                       <p className="text-gray-600">{product.overview.description}</p>
                       
                       <div>
@@ -273,6 +287,11 @@ const Documentation = () => {
                           ))}
                         </div>
                       </div>
+                      
+                      <Link to={product.detailsPath} className="inline-flex items-center text-[#F37321] text-sm font-medium hover:underline">
+                        Read full documentation
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
                     </div>
                   </TabsContent>
                   
