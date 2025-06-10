@@ -48,9 +48,11 @@ const Footer = () => {
           {/* Brand section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ES</span>
-              </div>
+              <img 
+                src="/lovable-uploads/ebc44709-c36d-4e63-8e0b-972f66980638.png" 
+                alt="ETH Switch Logo" 
+                className="w-8 h-8"
+              />
               <div>
                 <h1 className="text-lg font-bold">ETH Switch</h1>
                 <p className="text-xs text-gray-400">Developer Portal</p>

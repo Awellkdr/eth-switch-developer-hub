@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Documentation from "./pages/Documentation";
 import InstantPaymentsOverview from "./pages/docs/InstantPaymentsOverview";
 import BankTransfersOverview from "./pages/docs/BankTransfersOverview";
+import InstantPaymentsDetail from "./pages/docs/InstantPaymentsDetail";
+import BankTransfersDetail from "./pages/docs/BankTransfersDetail";
 import Playground from "./pages/Playground";
 import Console from "./pages/Console";
 import Support from "./pages/Support";
@@ -26,12 +28,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/docs" element={<Documentation />} />
           <Route path="/docs/instant-payments" element={<InstantPaymentsOverview />} />
+          <Route path="/docs/instant-payments/detail" element={<InstantPaymentsDetail />} />
           <Route path="/docs/bank-transfers" element={<BankTransfersOverview />} />
+          <Route path="/docs/bank-transfers/detail" element={<BankTransfersDetail />} />
           <Route path="/playground" element={<Playground />} />
-          <Route path="/console/*" element={<Console />} />
+          <Route path="/console" element={<Console />} />
           <Route path="/support" element={<Support />} />
           <Route path="/get-started" element={<GetStarted />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
