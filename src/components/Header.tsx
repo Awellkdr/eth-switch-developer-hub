@@ -24,7 +24,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/cd222cf4-9cf4-4ddc-bd65-2ff5da9dadb7.png" 
+                src="/lovable-uploads/ebc44709-c36d-4e63-8e0b-972f66980638.png" 
                 alt="ETH Switch Logo" 
                 className="w-10 h-10"
               />
