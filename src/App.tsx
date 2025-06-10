@@ -11,6 +11,7 @@ import BankTransfersOverview from "./pages/docs/BankTransfersOverview";
 import Playground from "./pages/Playground";
 import Console from "./pages/Console";
 import Support from "./pages/Support";
+import GetStarted from "./pages/GetStarted";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/playground" element={<Playground />} />
           <Route path="/console/*" element={<Console />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/get-started" element={<GetStarted />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -17,17 +17,19 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and brand */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ES</span>
-              </div>
+              <img 
+                src="/lovable-uploads/cd222cf4-9cf4-4ddc-bd65-2ff5da9dadb7.png" 
+                alt="ETH Switch Logo" 
+                className="w-10 h-10"
+              />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">ETH Switch</h1>
+                <h1 className="text-xl font-bold text-[#1B2A3B]">ETH Switch</h1>
                 <p className="text-xs text-gray-600">Developer Portal</p>
               </div>
             </Link>
@@ -39,8 +41,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  item.current ? "text-blue-600" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-[#F37321] ${
+                  item.current ? "text-[#F37321]" : "text-gray-700"
                 }`}
               >
                 {item.name}
@@ -55,13 +57,17 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search docs..."
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#F37321] focus:border-transparent"
               />
             </div>
             <Badge variant="secondary" className="bg-green-100 text-green-800">
               All Systems Operational
             </Badge>
-            <Button size="sm">Get API Keys</Button>
+            <Link to="/get-started">
+              <Button size="sm" className="bg-[#F37321] hover:bg-[#e06314] text-white">
+                Get API Keys
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -83,8 +89,8 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block text-sm font-medium transition-colors hover:text-blue-600 ${
-                    item.current ? "text-blue-600" : "text-gray-700"
+                  className={`block text-sm font-medium transition-colors hover:text-[#F37321] ${
+                    item.current ? "text-[#F37321]" : "text-gray-700"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -92,7 +98,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-200">
-                <Button size="sm" className="w-full">Get API Keys</Button>
+                <Link to="/get-started">
+                  <Button size="sm" className="w-full bg-[#F37321] hover:bg-[#e06314] text-white">
+                    Get API Keys
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
