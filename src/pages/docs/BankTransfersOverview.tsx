@@ -428,7 +428,7 @@ const BankTransfersOverview = () => {
                   <TabsContent value="status">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <h4 className="font-semibold">GET /api/v1/bank-transfers/{transferId}</h4>
+                        <h4 className="font-semibold">GET /api/v1/bank-transfers/[transferId]</h4>
                         <Button size="sm" variant="outline" onClick={() => copyCode('// Status check code')}>
                           <Copy className="w-4 h-4 mr-2" />
                           Copy
