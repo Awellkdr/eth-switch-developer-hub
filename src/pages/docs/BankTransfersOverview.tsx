@@ -5,55 +5,43 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Copy, Play, AlertCircle, CheckCircle, CreditCard, ArrowRight, Download, Building, Globe, Shield, Clock, Zap, DollarSign, Users, BarChart3, Code, FileText, Activity } from "lucide-react";
+import { ArrowLeft, Copy, Play, AlertCircle, CheckCircle, CreditCard, ArrowRight, Download, Building, Globe, Shield, Clock, Zap, DollarSign, Users, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const BankTransfersOverview = () => {
-  const heroStats = [
-    { label: "Processing Speed", value: "< 5 mins", icon: <Clock className="w-5 h-5" /> },
-    { label: "Success Rate", value: "99.8%", icon: <CheckCircle className="w-5 h-5" /> },
-    { label: "Daily Volume", value: "$50M+", icon: <BarChart3 className="w-5 h-5" /> },
-    { label: "Bank Partners", value: "25+", icon: <Building className="w-5 h-5" /> }
-  ];
-
   const features = [
     {
       title: "Domestic Transfers",
       description: "Inter-bank transfers within Ethiopia",
       icon: <Building className="w-5 h-5" />,
-      status: "Production Ready",
-      progress: 100
+      status: "Production Ready"
     },
     {
       title: "International SWIFT",
       description: "Global transfers via SWIFT network",
       icon: <Globe className="w-5 h-5" />,
-      status: "Production Ready",
-      progress: 100
+      status: "Production Ready"
     },
     {
       title: "Bulk Processing",
       description: "Process multiple transfers simultaneously",
       icon: <Clock className="w-5 h-5" />,
-      status: "Production Ready",
-      progress: 100
+      status: "Production Ready"
     },
     {
       title: "Compliance & Security",
       description: "AML/KYC compliance with enterprise security",
       icon: <Shield className="w-5 h-5" />,
-      status: "Production Ready",
-      progress: 100
+      status: "Production Ready"
     }
   ];
 
   const integrationSteps = [
-    { step: 1, title: "Bank Registration", description: "Register with supported banking partners", status: "Required", progress: 100 },
-    { step: 2, title: "Compliance Setup", description: "Configure AML/KYC compliance rules", status: "Required", progress: 100 },
-    { step: 3, title: "Domestic Transfers", description: "Implement local bank transfers", status: "Required", progress: 100 },
-    { step: 4, title: "SWIFT Integration", description: "Enable international transfers", status: "Optional", progress: 85 },
-    { step: 5, title: "Bulk Operations", description: "Add batch processing capabilities", status: "Optional", progress: 70 }
+    { step: 1, title: "Bank Registration", description: "Register with supported banking partners", status: "Required" },
+    { step: 2, title: "Compliance Setup", description: "Configure AML/KYC compliance rules", status: "Required" },
+    { step: 3, title: "Domestic Transfers", description: "Implement local bank transfers", status: "Required" },
+    { step: 4, title: "SWIFT Integration", description: "Enable international transfers", status: "Optional" },
+    { step: 5, title: "Bulk Operations", description: "Add batch processing capabilities", status: "Optional" }
   ];
 
   const processFlow = [
@@ -95,7 +83,7 @@ const BankTransfersOverview = () => {
     },
     {
       method: "GET",
-      endpoint: "/api/v1/bank-transfers/{transferId}",
+      endpoint: "/api/v1/bank-transfers/{'{id}'}",
       description: "Retrieve transfer status and details",
       status: "Live"
     },
@@ -142,83 +130,43 @@ const BankTransfersOverview = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <Header />
       
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#1B2A3B] via-[#1B2A3B]/90 to-[#F37321]">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            {/* Breadcrumb */}
-            <div className="mb-8">
-              <Link to="/docs" className="inline-flex items-center text-white/80 hover:text-white transition-colors">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Documentation
-              </Link>
-            </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Breadcrumb */}
+        <div className="mb-8">
+          <Link to="/docs" className="inline-flex items-center text-[#F37321] hover:text-[#e06314] transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Documentation
+          </Link>
+        </div>
 
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
-              🏦 SWIFT Certified & Production Ready
-            </Badge>
-            
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white">
-                <CreditCard className="w-8 h-8" />
+        {/* Header */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center text-white">
+                <CreditCard className="w-6 h-6" />
               </div>
-              <div className="text-left">
-                <h1 className="text-5xl font-bold text-white">Bank Transfers API</h1>
-                <p className="text-xl text-blue-100">Secure inter-bank transfers with SWIFT integration</p>
+              <div>
+                <h1 className="text-4xl font-bold text-[#1B2A3B]">Bank Transfers API</h1>
+                <p className="text-lg text-gray-600">Secure inter-bank transfers with SWIFT integration</p>
               </div>
             </div>
-            
-            <p className="text-lg text-blue-100 mb-8 max-w-3xl mx-auto">
-              Enable secure bank-to-bank transfers across Ethiopia and internationally. 
-              Built with enterprise-grade security, SWIFT certification, and comprehensive compliance features.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button size="lg" className="bg-[#F37321] hover:bg-[#e06314] text-white">
+            <div className="flex space-x-3">
+              <Button>
                 <Play className="w-4 h-4 mr-2" />
                 Try API
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Download SDK
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <FileText className="w-4 h-4 mr-2" />
-                View Documentation
-              </Button>
-            </div>
-            
-            {/* Hero Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {heroStats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <div className="text-emerald-300">{stat.icon}</div>
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  </div>
-                  <div className="text-blue-200 text-sm">{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
-        </div>
-        
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-5 rounded-full"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white opacity-5 rounded-full"></div>
-        </div>
-      </div>
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Status Badges */}
-        <div className="mb-8 flex flex-wrap gap-2">
-          <Badge variant="secondary" className="bg-green-100 text-green-800">Production Ready</Badge>
-          <Badge variant="outline">v3.2</Badge>
-          <Badge variant="outline">SWIFT Certified</Badge>
-          <Badge variant="outline">ISO 20022 Compliant</Badge>
+          <div className="flex space-x-2">
+            <Badge variant="secondary" className="bg-green-100 text-green-800">Production Ready</Badge>
+            <Badge variant="outline">v3.2</Badge>
+            <Badge variant="outline">SWIFT Certified</Badge>
+          </div>
         </div>
 
         {/* Content Tabs */}
@@ -226,7 +174,7 @@ const BankTransfersOverview = () => {
           <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="integration">Integration</TabsTrigger>
-            <TabsTrigger value="examples">Code Examples</TabsTrigger>
+            <TabsTrigger value="process">Process Flow</TabsTrigger>
             <TabsTrigger value="specifications">Specifications</TabsTrigger>
             <TabsTrigger value="resources">Resources</TabsTrigger>
             <TabsTrigger value="pricing">Pricing</TabsTrigger>
@@ -241,7 +189,7 @@ const BankTransfersOverview = () => {
                   international transfers via SWIFT network. Built with enterprise-grade security and compliance.
                 </p>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                   {features.map((feature, index) => (
                     <div key={index} className="border rounded-lg p-4">
                       <div className="flex items-center space-x-2 mb-3">
@@ -251,31 +199,7 @@ const BankTransfersOverview = () => {
                         </Badge>
                       </div>
                       <h3 className="font-semibold text-[#1B2A3B] mb-2">{feature.title}</h3>
-                      <p className="text-sm text-gray-600 mb-3">{feature.description}</p>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-xs">
-                          <span>Implementation</span>
-                          <span>{feature.progress}%</span>
-                        </div>
-                        <Progress value={feature.progress} className="h-2" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Process Flow Visualization */}
-                <h3 className="text-xl font-semibold text-[#1B2A3B] mb-4">Transfer Process Flow</h3>
-                <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {processFlow.map((flow, index) => (
-                    <div key={index} className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full flex items-center justify-center font-semibold text-sm mx-auto mb-2">
-                        {flow.step}
-                      </div>
-                      <h4 className="font-medium text-sm text-[#1B2A3B] mb-1">{flow.action}</h4>
-                      <p className="text-xs text-gray-600">{flow.description}</p>
-                      {index < processFlow.length - 1 && (
-                        <ArrowRight className="w-4 h-4 text-gray-400 mx-auto mt-2 hidden lg:block" />
-                      )}
+                      <p className="text-sm text-gray-600">{feature.description}</p>
                     </div>
                   ))}
                 </div>
@@ -337,14 +261,7 @@ const BankTransfersOverview = () => {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-[#1B2A3B]">{step.title}</h3>
-                        <p className="text-sm text-gray-600 mb-2">{step.description}</p>
-                        <div className="space-y-1">
-                          <div className="flex justify-between text-xs">
-                            <span>Progress</span>
-                            <span>{step.progress}%</span>
-                          </div>
-                          <Progress value={step.progress} className="h-2" />
-                        </div>
+                        <p className="text-sm text-gray-600">{step.description}</p>
                       </div>
                       <Badge variant={step.status === "Required" ? "default" : "outline"}>
                         {step.status}
@@ -369,7 +286,7 @@ const BankTransfersOverview = () => {
                         <Badge className={endpoint.method === "POST" ? "bg-blue-100 text-blue-800" : "bg-green-100 text-green-800"}>
                           {endpoint.method}
                         </Badge>
-                        <code className="text-sm font-mono bg-gray-100 px-2 py-1 rounded">{endpoint.endpoint}</code>
+                        <code className="text-sm font-mono">{endpoint.endpoint}</code>
                       </div>
                       <p className="text-gray-600 mb-3">{endpoint.description}</p>
                       <div className="flex items-center space-x-2">
@@ -385,97 +302,30 @@ const BankTransfersOverview = () => {
             </Card>
           </TabsContent>
 
-          {/* Code Examples Tab */}
-          <TabsContent value="examples" className="space-y-8">
+          {/* Process Flow Tab */}
+          <TabsContent value="process" className="space-y-8">
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-[#1B2A3B]">Implementation Examples</CardTitle>
-                <CardDescription>Ready-to-use code examples for bank transfer integration</CardDescription>
+                <CardTitle className="text-[#1B2A3B]">Transfer Process Flow</CardTitle>
+                <CardDescription>Complete transfer lifecycle from initiation to settlement</CardDescription>
               </CardHeader>
               <CardContent>
-                <Tabs defaultValue="initiate" className="space-y-6">
-                  <TabsList>
-                    <TabsTrigger value="initiate">Initiate Transfer</TabsTrigger>
-                    <TabsTrigger value="status">Check Status</TabsTrigger>
-                    <TabsTrigger value="bulk">Bulk Processing</TabsTrigger>
-                  </TabsList>
-
-                  <TabsContent value="initiate">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-semibold">POST /api/v1/bank-transfers</h4>
-                        <Button size="sm" variant="outline" onClick={() => copyCode('// Initiate bank transfer code')}>
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy
-                        </Button>
+                <div className="space-y-6">
+                  {processFlow.map((flow, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full flex items-center justify-center font-semibold text-sm mt-1">
+                        {flow.step}
                       </div>
-                      <div className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
-                        <pre>{`{
-  "amount": 1500.00,
-  "currency": "ETB",
-  "from_bank": "CBETETAA",
-  "to_bank": "DASHETAS",
-  "from_account": "1000123456789",
-  "to_account": "2000987654321",
-  "beneficiary_name": "John Doe",
-  "transfer_purpose": "SAL",
-  "reference": "INV-2024-001"
-}`}</pre>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-[#1B2A3B]">{flow.action}</h3>
+                        <p className="text-sm text-gray-600">{flow.description}</p>
                       </div>
+                      {index < processFlow.length - 1 && (
+                        <div className="w-px h-12 bg-gray-300 ml-4"></div>
+                      )}
                     </div>
-                  </TabsContent>
-
-                  <TabsContent value="status">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-semibold">GET /api/v1/bank-transfers/[transferId]</h4>
-                        <Button size="sm" variant="outline" onClick={() => copyCode('// Status check code')}>
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy
-                        </Button>
-                      </div>
-                      <div className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
-                        <pre>{`{
-  "id": "bt_1234567890",
-  "status": "completed",
-  "amount": 1500.00,
-  "currency": "ETB",
-  "created_at": "2024-01-15T10:30:00Z",
-  "completed_at": "2024-01-15T10:33:45Z",
-  "swift_reference": "FT24015123456789"
-}`}</pre>
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="bulk">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-semibold">POST /api/v1/bank-transfers/batch</h4>
-                        <Button size="sm" variant="outline" onClick={() => copyCode('// Bulk processing code')}>
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy
-                        </Button>
-                      </div>
-                      <div className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
-                        <pre>{`{
-  "batch_id": "batch_20240115_001",
-  "transfers": [
-    {
-      "amount": 1500.00,
-      "currency": "ETB",
-      "from_bank": "CBETETAA",
-      "to_bank": "DASHETAS",
-      "from_account": "1000123456789",
-      "to_account": "2000987654321",
-      "beneficiary_name": "John Doe"
-    }
-  ]
-}`}</pre>
-                      </div>
-                    </div>
-                  </TabsContent>
-                </Tabs>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
