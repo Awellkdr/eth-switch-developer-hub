@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -456,7 +455,7 @@ console.log('Status:', payment.status);`}
                   <div className="border rounded-lg p-4">
                     <div className="flex items-center space-x-3 mb-3">
                       <Badge className="bg-green-100 text-green-800">GET</Badge>
-                      <code className="text-sm font-mono">/api/v1/payments/{id}</code>
+                      <code className="text-sm font-mono">/api/v1/payments/{"{id}"}</code>
                     </div>
                     <p className="text-gray-600 mb-3">Retrieve payment status and details</p>
                     <Button size="sm" variant="outline">View Details</Button>
